@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ciam.financia.model.Conexion;
+import com.ciam.financia.model.Prestamo;
 import com.ciam.financia.model.Socio;
 
 
@@ -29,9 +30,10 @@ public class SocioDAO {
 
 	
 	// listar todos los productos
-	public List<Socio> listarSocios(int montoPedido) throws SQLException {
+	public Prestamo calcularPrestamo(int montoPedido) throws SQLException {
 
-		List<Socio> listaSocios = new ArrayList<Socio>();
+		//List<Socio> listaSocios = new ArrayList<Socio>();
+		Prestamo prestamo=null;
 		String sql = "SELECT * FROM socios WHERE monto_maximo>"+montoPedido + " ORDER BY tasa ASC";
 		con.conectar();
 		connection = con.getJdbcConnection();
@@ -39,40 +41,23 @@ public class SocioDAO {
 		ResultSet resulSet = statement.executeQuery(sql);
 		System.out.println("listaSociosEnDAOsocios..");
 
-		while (resulSet.next()) {
+		if (resulSet.next()) {
 			int id = resulSet.getInt("id");
 			String nombre = resulSet.getString("nombre");
 			Double tasa = resulSet.getDouble("tasa");
 			int montoMaximo = resulSet.getInt("monto_maximo");
 			
 			Socio socio = new Socio(id, nombre, tasa, montoMaximo);
-			listaSocios.add(socio);
+			prestamo=new Prestamo(socio,montoPedido,socio.getTasa());
+		} else {System.out.println("NO HAY SOCIO DISPONIBLE");
+			//prestamo.setMessage("NO HAY SOCIO DISPONIBLE");
 		}
 		con.desconectar();
 		System.out.println("FIN DE LA LISTA");
-		return listaSocios;
+		return prestamo;
 	}
 
-	// obtener por id
-	public Socio obtenerPorId(int id) throws SQLException {
-		Socio socio = null;
-
-		String sql = "SELECT * FROM socios WHERE id= ? ";
-		con.conectar();
-		connection = con.getJdbcConnection();
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, id);
-
-		ResultSet res = statement.executeQuery();
-		if (res.next()) {
-			socio = new Socio(res.getInt("id"), res.getString("nombre"), res.getDouble("tasa"),
-					res.getInt("monto_maximo"));
-		}
-		res.close();
-		con.desconectar();
-
-		return socio;
-	}
+	
 
 	
 	

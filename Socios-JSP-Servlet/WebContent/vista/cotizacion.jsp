@@ -19,22 +19,36 @@
 	<table border="1" width="100%">
 		<tr>
 		
-		 <td> ID</td>
-		 <td> NOMBRE</td>
-		 <td> TASA</td>
-		 <td>MONTO MAXIMO</td>
+		 <td> Socio que realiza el prestamo</td>
+		 <td> Cuota mensual</td>
+		 <td> Pago total</td>
+		 <td>Tasa de interes Mensual</td>
 		 
 		</tr>
-		<c:forEach var="socio" items="${lista}">
+		
 			<tr>
-				<td><c:out value="${socio.id}"/></td>
-				<td><c:out value="${socio.nombre}"/></td>
-				<td><c:out value="${socio.tasa}"/></td>
-				<td><c:out value="${socio.montoMaximo}"/></td>
+				<td><c:out value="${prestamo.socio.nombre}"/></td>
+				<td>$ <c:out value="${prestamo.pagoMensual}"/></td>
+				<td>$ <c:out value="${prestamo.pagoTotal}"/></td>
+				<td><c:out value="${prestamo.socio.tasa}"/> %</td>
 									
 			</tr>
-		</c:forEach>
+		
 	</table>
+	
+	<% 
+            
+            if(request.getAttribute("prestamo")==null){ 
+                %> 
+                <h1>NO HAY SOCIO DISPONIBLE</h1>
+                <% 
+            }else{ 
+                %> 
+               <h1> </h1>
+                <% 
+            } 
+        %>  
+	
 	
 </body>
 </html>

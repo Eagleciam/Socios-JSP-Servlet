@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ciam.financia.dao.SocioDAO;
+import com.ciam.financia.model.Prestamo;
 import com.ciam.financia.model.Socio;
 
 
@@ -104,9 +105,9 @@ public class AdminSocio extends HttpServlet {
 	private void cotizar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException , ServletException{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/vista/cotizacion.jsp");
 		int montoPedido=Integer.parseInt(request.getParameter("monto"));
-		List<Socio> listaSocios= socioDAO.listarSocios(montoPedido);
-		request.setAttribute("lista", listaSocios);
-		System.out.println(request.getParameter("monto"));
+		Prestamo miPrestamo= socioDAO.calcularPrestamo(montoPedido);
+		request.setAttribute("prestamo", miPrestamo);
+		//System.out.println(request.getParameter("monto"));
 		dispatcher.forward(request, response);
 	}	
 	

@@ -6,6 +6,9 @@ public class Socio {
 	private String nombre;
 	private double tasa;
 	private int montoMaximo;
+//	public int cotizacion;
+//	public int mensual;
+	
 	public Socio(int id, String nombre, double tasa, int montoMaximo) {
 		super();
 		this.id = id;
@@ -38,6 +41,12 @@ public class Socio {
 		this.montoMaximo = montoMaximo;
 	}
 	
+	
+//	public void cotizacion(int montoPedido) {
+//		int cotiz=(int) (montoPedido*(1+((this.tasa)/100)*36));
+//		this.cotizacion=cotiz;
+//		this.mensual=cotiz/36;
+//	}
 	
 	
 	
