@@ -6,8 +6,7 @@ public class Socio {
 	private String nombre;
 	private double tasa;
 	private int montoMaximo;
-//	public int cotizacion;
-//	public int mensual;
+
 	
 	public Socio(int id, String nombre, double tasa, int montoMaximo) {
 		super();

@@ -14,10 +14,6 @@ import com.ciam.financia.model.Socio;
 
 
 
-/*
- * @autor: Elivar Largo
- * @web: www.ecodeup.com
- */
 
 public class SocioDAO {
 	private Conexion con;
