@@ -103,7 +103,8 @@ public class AdminSocio extends HttpServlet {
 
 	private void cotizar(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException , ServletException{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/vista/cotizacion.jsp");
-		List<Socio> listaSocios= socioDAO.listarSocios();
+		int montoPedido=Integer.parseInt(request.getParameter("monto"));
+		List<Socio> listaSocios= socioDAO.listarSocios(montoPedido);
 		request.setAttribute("lista", listaSocios);
 		System.out.println(request.getParameter("monto"));
 		dispatcher.forward(request, response);

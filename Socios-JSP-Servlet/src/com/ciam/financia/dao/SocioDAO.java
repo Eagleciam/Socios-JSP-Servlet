@@ -29,10 +29,10 @@ public class SocioDAO {
 
 	
 	// listar todos los productos
-	public List<Socio> listarSocios() throws SQLException {
+	public List<Socio> listarSocios(int montoPedido) throws SQLException {
 
 		List<Socio> listaSocios = new ArrayList<Socio>();
-		String sql = "SELECT * FROM socios";
+		String sql = "SELECT * FROM socios WHERE monto_maximo>"+montoPedido + " ORDER BY tasa ASC";
 		con.conectar();
 		connection = con.getJdbcConnection();
 		Statement statement = connection.createStatement();

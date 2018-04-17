@@ -14,20 +14,25 @@
   </div>
  </div>
 	<h1>Administrar Cotizacion</h1>
-	<table border="1" width="50%" align="center">
+	<form action="adminSocio?action=cotizar" method="post">
+		<table border="1" align="center">
 		<tr>
-			<td>Valor del Prestamo:</td>	
-			<td align="center"><input type="text" name="montoPedido" id="montoPedido"/></td>	
-			<td align="center"><a href="adminSocio?action=cotizar">COtizar</a></td>		
+			<td>Valor del prestamo: </a></td>		
+			<td><input type="text" name="monto"/></td>	
 		</tr>
 		
-			
 	</table>
+	<br>
+	<table border="0" align="center">
+		<tr>
+		<td><input type="submit" value="COTIZAR" name="cotizar"></td>	
+		</tr>
+	
+	</form>
 	
 	
-	<div
-  style="background: #E0E0E0; text-align: center; padding: 1px; margin-top: 10px;">
-  Financiam :)
+	<div  style="background: #E0E0E0; text-align: center; padding: 1px; margin-top: 10px;">
+  Realiza tu cotizacion
 </div>
 	
 </body>
