@@ -31,6 +31,6 @@
  
 
  -- Índices para tablas volcadas 
- -- Indices de la tabla `articulos`
+ -- Indices de la tabla `socios`
  ALTER TABLE `socios` 
  ADD PRIMARY KEY (`id`);
