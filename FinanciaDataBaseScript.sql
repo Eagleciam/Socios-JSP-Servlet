@@ -13,7 +13,7 @@
  
  SELECT * FROM socios WHERE monto_maximo>4200000;
  
- -- Estructura de tabla para la tabla `articulos` -
+ -- Estructura de tabla para la tabla `socios` -
  
  CREATE TABLE `socios` ( 
  `id` int(10) NOT NULL, 
@@ -23,7 +23,7 @@
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
  
  
- -- Volcado de datos para la tabla `articulos` -
+ -- Volcado de datos para la tabla `socios` -
  INSERT INTO `socios` (`id`, `nombre`, `tasa`, `monto_maximo`) VALUES
  (1, 'Juan', 1.5, 5000000),
  (2, 'Andrés', 2.0, 7500000), 
